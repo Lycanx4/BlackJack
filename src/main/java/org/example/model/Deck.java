@@ -44,7 +44,7 @@ public class Deck {
         return true;
     }
 
-    public Card drawCard(){
+    public Card giveCard(){
         Card card = cards.get(0);
         cards.remove(0);
         return card;

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
+    private int playerId;
     private String name;
     private int totalMoney;
     private int bet;
@@ -16,8 +17,9 @@ public class Player {
 
 
 
-    public Player(String name){
+    public Player(String name, int  playerId){
         this.name = name;
+        this.playerId = playerId;
         this.bet = 0;
         this.hand = new ArrayList<>();
         this.isLoss = false;
@@ -47,7 +49,9 @@ public class Player {
             this.bet = bet;
         }
     }
-
+    public void clearHand(){
+        this.hand.clear();
+    }
     public void drawCard(Card card){
         this.hand.add(card);
         if(getTotalScore()>21){
@@ -64,7 +68,7 @@ public class Player {
             }
             score += card.getScore();
         }
-        if(isOne && score+11 <= 21){
+        if(isOne && score+11 < 21){
             score += 10;
         }
         return score;
