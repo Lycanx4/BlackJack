@@ -22,7 +22,14 @@ public class Card {
 
     @Override
     public String toString() {
-        return super.toString();
+        return getCardACII();
+    }
+    public int getScore(){
+        try {
+            return Integer.parseInt(rank);
+        }catch (NumberFormatException e){
+            return 10;
+        }
     }
 
     public String getCardACII(){
